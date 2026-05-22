@@ -8,7 +8,28 @@ An interactive 3-page Power BI dashboard designed to analyze retail pizza sales 
 2. Pizza Product Performance
 3. Category & Size Analysis
 
-## 📸 Dashboard Preview
+##  Key SQL Queries Used for KPI Verification
+-- 1. Total Revenue
+       select CAST(sum(total_price) AS DECIMAL(10,2)) as total_revenue
+       from pizza_sales;
+
+-- 2. Total Orders Placed
+       select count(distinct order_id) as total_Order
+       from pizza_sales;
+
+-- 3. Total Pizza Sold
+       select sum(quantity) as total_sold
+       from pizza_sales;
+
+-- 4. Average Pizza Per Order
+      select sum(quantity) / count(distinct order_id) as Average_pizza_per_order
+      from pizza_sales;
+
+-- 5. Average Order Value
+      select sum(total_price) / count(distinct order_id) as AOV
+      from pizza_sales;
+
+##  Dashboard Preview
 
 ### Page 1: Sales Overview
 <img width="1322" height="731" alt="Page1 - Sales Overview" src="https://github.com/user-attachments/assets/55bd63cc-f0c9-4df4-91d4-c9af3bf7ec40" />
@@ -20,5 +41,7 @@ An interactive 3-page Power BI dashboard designed to analyze retail pizza sales 
 <img width="1324" height="726" alt="Page 3 - Category   Size Ananlysis" src="https://github.com/user-attachments/assets/b9b3bd0d-286d-4ed9-acbf-b2c95899a0c4" />
 
 ## 🛠️ Tools Used
-* Power BI Desktop
-* Excel / CSV
+* Power BI Desktopn: (Dashboard design, data modeling and DAX calculation)
+* SQL(Structured Query Language): Data extraction, cleaning and querying database.
+* Excel / CSV: (Raw transaction data source)
+  
